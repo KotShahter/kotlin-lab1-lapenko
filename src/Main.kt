@@ -71,9 +71,16 @@ fun findMostActiveService (logList : List<LogEntry>) : String
     return result!!.service;
 }
 
+fun getErrorsForService (logList : List<LogEntry>, service : String) : List<String>
+{
+    val groupedByFirstLetter = logList.groupBy { it.level }
+    return groupedByFirstLetter["ERROR"]!!.map { it.service }; //фп прикольное
+}
+
 fun main() {
     print(123) //eachCount
     val MyLogs = parsing()
     println(countByLevel(MyLogs))
     println(findMostActiveService(MyLogs))
+    println(getErrorsForService(MyLogs, "123"))
 }
