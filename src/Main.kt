@@ -47,22 +47,24 @@ val sampleLogs = listOf(
 
 val regex = """\[([^\]]+)]\s*\[([^\]]+)]\s*\[([^\]]+)]\s*(.+)""".toRegex()
 
-fun parsing()
+fun parsing() : List<LogEntry>
 {
-    val loglines: List<LogEntry> = sampleLogs.mapNotNull { line ->
+    val loglines: List<LogEntry> = sampleLogs.mapNotNull { line -> //разобрано, поясню что тут и куда
         regex.matchEntire(line)?.destructured?.let { (timestamp, level, service, message) ->
-            LogEntry(timestamp, level, service, message)}
+            LogEntry(timestamp, level, service, message)}}
+    return loglines
+}
+// val parsedLogs = sampleLogs.mapNotNull {LogEntry(regex.matchEntire(it).destructured)}
 
-    val (log1, log2, log3, log4) = regex.matchEntire("[2024-01-15T10:23:45] [INFO] [auth-service] User logged in")!!.destructured
-    val temp = LogEntry(log1, log2, log3, log4)
-
-   // val parsedLogs = sampleLogs.mapNotNull {LogEntry(regex.matchEntire(it).destructured)}
-
+fun countByLevel (logList : List<LogEntry>) : Map<String, Int>
+{
+    val groupedByFirstLetter = logList.groupingBy { it.level } //мамой клянусь, я офигеть как понимаю что это
+    val counts = groupedByFirstLetter.eachCount()
+    return counts;
 }
 
-
-fun main()
-{
+fun main() {
     print(123) //eachCount
-    parsing()
+    val MyLogs = parsing()
+    print(countByLevel(MyLogs))
 }
