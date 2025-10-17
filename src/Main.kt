@@ -49,14 +49,15 @@ val regex = """\[([^\]]+)]\s*\[([^\]]+)]\s*\[([^\]]+)]\s*(.+)""".toRegex()
 
 fun parsing()
 {
-    val temp = LogEntry("123", "23", "23", "3232")
-    val (Log1, log2, log3, log4) = regex.matchEntire("[2024-01-15T10:23:45] [INFO] [auth-service] User logged in")!!.destructured
+    val loglines: List<LogEntry> = sampleLogs.mapNotNull { line ->
+        regex.matchEntire(line)?.destructured?.let { (timestamp, level, service, message) ->
+            LogEntry(timestamp, level, service, message)}
 
+    val (log1, log2, log3, log4) = regex.matchEntire("[2024-01-15T10:23:45] [INFO] [auth-service] User logged in")!!.destructured
+    val temp = LogEntry(log1, log2, log3, log4)
 
    // val parsedLogs = sampleLogs.mapNotNull {LogEntry(regex.matchEntire(it).destructured)}
 
-    print (Log1)
-    print (log2)
 }
 
 
