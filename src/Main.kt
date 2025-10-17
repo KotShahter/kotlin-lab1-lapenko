@@ -1,4 +1,4 @@
-import kotlin.math.log
+
 
 data class LogEntry(
     val timestamp: String,
@@ -89,6 +89,12 @@ fun getTopNLongestMessages(logList : List<LogEntry>, TopN: Int) : List<LogEntry>
     return  groupedByFirstLetter.map { it }
 }
 
+fun filterByTimeRange(logList : List<LogEntry>, timestamp1 : String, timestamp2: String) : List<LogEntry>
+{
+    val groupedByFirstLetter = logList.filter { timestamp1 < it.timestamp && it.timestamp < timestamp2}
+    return  groupedByFirstLetter
+}
+
 fun main() {
     print(123) //eachCount
     val MyLogs = parsing()
@@ -97,4 +103,5 @@ fun main() {
     println(getErrorsForService(MyLogs, "123"))
     //println(analyzeMessageLengths(MyLogs))
     println(getTopNLongestMessages(MyLogs, 2))
+    println(filterByTimeRange(MyLogs, "2024-01-15T10:28:17", "2024-01-15T10:32:12"))
 }
