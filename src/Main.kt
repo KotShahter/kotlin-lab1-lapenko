@@ -77,10 +77,24 @@ fun getErrorsForService (logList : List<LogEntry>, service : String) : List<Stri
     return groupedByFirstLetter["ERROR"]!!.map { it.service }; //фп прикольное
 }
 
+fun analyzeMessageLengths (logList : List<LogEntry>) : List<String>
+{
+    val lengths = logList.map { it.service }
+    return lengths
+}
+
+fun getTopNLongestMessages(logList : List<LogEntry>, TopN: Int) : List<LogEntry>
+{
+    val groupedByFirstLetter = logList.sortedByDescending { it.toString().length }.take(TopN)
+    return  groupedByFirstLetter.map { it }
+}
+
 fun main() {
     print(123) //eachCount
     val MyLogs = parsing()
     println(countByLevel(MyLogs))
     println(findMostActiveService(MyLogs))
     println(getErrorsForService(MyLogs, "123"))
+    //println(analyzeMessageLengths(MyLogs))
+    println(getTopNLongestMessages(MyLogs, 2))
 }
