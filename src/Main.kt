@@ -77,9 +77,9 @@ fun getErrorsForService (logList : List<LogEntry>, service : String) : List<Stri
     return groupedByFirstLetter["ERROR"]!!.map { it.service }; //фп прикольное
 }
 
-fun analyzeMessageLengths (logList : List<LogEntry>) : List<String>
+fun analyzeMessageLengths (logList : List<LogEntry>) : Any
 {
-    val lengths = logList.map { it.service }
+    val lengths = logList.groupBy { it.level }.mapValues { it -> it.value.map { it.message.length }.average()}
     return lengths
 }
 
@@ -95,6 +95,11 @@ fun filterByTimeRange(logList : List<LogEntry>, timestamp1 : String, timestamp2:
     return  groupedByFirstLetter
 }
 
+fun getServiceLevelDistribution(logList : List<LogEntry>)
+{
+
+}
+
 fun main() {
     print(123) //eachCount
     val MyLogs = parsing()
@@ -103,5 +108,8 @@ fun main() {
     println(getErrorsForService(MyLogs, "123"))
     //println(analyzeMessageLengths(MyLogs))
     println(getTopNLongestMessages(MyLogs, 2))
+    println()
+    println(analyzeMessageLengths(MyLogs))
+    println()
     println(filterByTimeRange(MyLogs, "2024-01-15T10:28:17", "2024-01-15T10:32:12"))
 }
