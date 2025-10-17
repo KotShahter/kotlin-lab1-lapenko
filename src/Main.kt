@@ -1,3 +1,5 @@
+import kotlin.math.log
+
 data class LogEntry(
     val timestamp: String,
     val level: String,
@@ -63,8 +65,15 @@ fun countByLevel (logList : List<LogEntry>) : Map<String, Int>
     return counts;
 }
 
+fun findMostActiveService (logList : List<LogEntry>) : String
+{
+    val result = logList.maxByOrNull { it.service } // типа оно выдает первый максимальный элемент sqlной функции. все это оч похоже на бд
+    return result!!.service;
+}
+
 fun main() {
     print(123) //eachCount
     val MyLogs = parsing()
-    print(countByLevel(MyLogs))
+    println(countByLevel(MyLogs))
+    println(findMostActiveService(MyLogs))
 }
