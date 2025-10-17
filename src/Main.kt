@@ -1,3 +1,4 @@
+import kotlin.math.log
 
 
 data class LogEntry(
@@ -95,9 +96,10 @@ fun filterByTimeRange(logList : List<LogEntry>, timestamp1 : String, timestamp2:
     return  groupedByFirstLetter
 }
 
-fun getServiceLevelDistribution(logList : List<LogEntry>)
+fun getServiceLevelDistribution(logList : List<LogEntry>) : Map<String, Map<String, Int>>
 {
-
+    val groupedByFirstLetter = logList.groupBy { it.service }.mapValues { entry -> entry.value.groupingBy { it.level }.eachCount()}
+        return groupedByFirstLetter
 }
 
 fun main() {
