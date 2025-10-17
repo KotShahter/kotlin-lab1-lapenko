@@ -1,22 +1,9 @@
-import kotlin.math.log
-
-
 data class LogEntry(
     val timestamp: String,
     val level: String,
     val service: String,
     val message: String
 )
-
-interface LogAnalyzer {
-    fun countByLevel(): Map<String, Int>
-    fun findMostActiveService(): String?
-    fun getErrorsForService(serviceName: String): List<String>
-    fun analyzeMessageLengths(): Map<String, Double>
-    fun getTopNLongestMessages(n: Int): List<LogEntry>
-    fun filterByTimeRange(startTime: String, endTime: String): List<LogEntry>
-    fun getServiceLevelDistribution(): Map<String, Map<String, Int>>
-}
 
 val sampleLogs = listOf(
     "[2024-01-15T10:23:45] [INFO] [auth-service] User logged in",
@@ -50,68 +37,69 @@ val sampleLogs = listOf(
 
 val regex = """\[([^\]]+)]\s*\[([^\]]+)]\s*\[([^\]]+)]\s*(.+)""".toRegex()
 
-fun parsing() : List<LogEntry>
-{
+class LogAnalyzer (LogList : List<LogEntry>){
+
+    fun countByLevel(logList: List<LogEntry>): Map<String, Int> {
+        val groupedByFirstLetter = logList.groupingBy { it.level } //мамой клянусь, я офигеть как понимаю что это
+        val counts = groupedByFirstLetter.eachCount()
+        return counts;
+    }
+
+    fun findMostActiveService(logList: List<LogEntry>): String {
+        val result =
+            logList.maxByOrNull { it.service } // типа оно выдает первый максимальный элемент sqlной функции. все это оч похоже на бд
+        return result!!.service;
+    }
+
+    fun getErrorsForService(logList: List<LogEntry>, service: String): List<String> {
+        val groupedByFirstLetter = logList.groupBy { it.level }
+        return groupedByFirstLetter["ERROR"]!!.map { it.service }; //фп прикольное
+    }
+
+    fun analyzeMessageLengths(logList: List<LogEntry>): Any {
+        val lengths = logList.groupBy { it.level }.mapValues { it -> it.value.map { it.message.length }.average() }
+        return lengths
+    }
+
+    fun getTopNLongestMessages(logList: List<LogEntry>, TopN: Int): List<LogEntry> {
+        val groupedByFirstLetter = logList.sortedByDescending { it.toString().length }.take(TopN)
+        return groupedByFirstLetter.map { it }
+    }
+
+    fun filterByTimeRange(logList: List<LogEntry>, timestamp1: String, timestamp2: String): List<LogEntry> {
+        val groupedByFirstLetter = logList.filter { timestamp1 < it.timestamp && it.timestamp < timestamp2 }
+        return groupedByFirstLetter
+    }
+
+    fun getServiceLevelDistribution(logList: List<LogEntry>): Map<String, Map<String, Int>> {
+        val groupedByFirstLetter =
+            logList.groupBy { it.service }.mapValues { entry -> entry.value.groupingBy { it.level }.eachCount() }
+        return groupedByFirstLetter
+    }
+}
+
+fun parsing(): List<LogEntry> {
     val loglines: List<LogEntry> = sampleLogs.mapNotNull { line -> //разобрано, поясню что тут и куда
         regex.matchEntire(line)?.destructured?.let { (timestamp, level, service, message) ->
-            LogEntry(timestamp, level, service, message)}}
+            LogEntry(timestamp, level, service, message)
+        }
+    }
     return loglines
 }
 // val parsedLogs = sampleLogs.mapNotNull {LogEntry(regex.matchEntire(it).destructured)}
 
-fun countByLevel (logList : List<LogEntry>) : Map<String, Int>
-{
-    val groupedByFirstLetter = logList.groupingBy { it.level } //мамой клянусь, я офигеть как понимаю что это
-    val counts = groupedByFirstLetter.eachCount()
-    return counts;
-}
-
-fun findMostActiveService (logList : List<LogEntry>) : String
-{
-    val result = logList.maxByOrNull { it.service } // типа оно выдает первый максимальный элемент sqlной функции. все это оч похоже на бд
-    return result!!.service;
-}
-
-fun getErrorsForService (logList : List<LogEntry>, service : String) : List<String>
-{
-    val groupedByFirstLetter = logList.groupBy { it.level }
-    return groupedByFirstLetter["ERROR"]!!.map { it.service }; //фп прикольное
-}
-
-fun analyzeMessageLengths (logList : List<LogEntry>) : Any
-{
-    val lengths = logList.groupBy { it.level }.mapValues { it -> it.value.map { it.message.length }.average()}
-    return lengths
-}
-
-fun getTopNLongestMessages(logList : List<LogEntry>, TopN: Int) : List<LogEntry>
-{
-    val groupedByFirstLetter = logList.sortedByDescending { it.toString().length }.take(TopN)
-    return  groupedByFirstLetter.map { it }
-}
-
-fun filterByTimeRange(logList : List<LogEntry>, timestamp1 : String, timestamp2: String) : List<LogEntry>
-{
-    val groupedByFirstLetter = logList.filter { timestamp1 < it.timestamp && it.timestamp < timestamp2}
-    return  groupedByFirstLetter
-}
-
-fun getServiceLevelDistribution(logList : List<LogEntry>) : Map<String, Map<String, Int>>
-{
-    val groupedByFirstLetter = logList.groupBy { it.service }.mapValues { entry -> entry.value.groupingBy { it.level }.eachCount()}
-        return groupedByFirstLetter
-}
 
 fun main() {
-    print(123) //eachCount
-    val MyLogs = parsing()
-    println(countByLevel(MyLogs))
-    println(findMostActiveService(MyLogs))
-    println(getErrorsForService(MyLogs, "123"))
+
+    val analyzer = LogAnalyzer(parsing())
+    val myLogs = parsing()
+    println(analyzer.countByLevel(myLogs))
+    println(analyzer.findMostActiveService(myLogs))
+    println(analyzer.getErrorsForService(myLogs, "123"))
     //println(analyzeMessageLengths(MyLogs))
-    println(getTopNLongestMessages(MyLogs, 2))
+    println(analyzer.getTopNLongestMessages(myLogs, 2))
     println()
-    println(analyzeMessageLengths(MyLogs))
+    println(analyzer.analyzeMessageLengths(myLogs))
     println()
-    println(filterByTimeRange(MyLogs, "2024-01-15T10:28:17", "2024-01-15T10:32:12"))
+    println(analyzer.filterByTimeRange(myLogs, "2024-01-15T10:28:17", "2024-01-15T10:32:12"))
 }
