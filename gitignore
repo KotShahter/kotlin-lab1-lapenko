@@ -1,0 +1,17 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# Gradle
+.gradle/
+build/
+
+# macOS
+.DS_Store
+
+# Compiled files
+*.class
+*.jar
+*.kotlin_module
