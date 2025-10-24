@@ -1,5 +1,3 @@
-import java.io.File
-
 interface Parser {
-    fun ParseLogs (file: String): List<LogEntry>
+    fun parseLogs(file: String): List<LogEntry>
 }

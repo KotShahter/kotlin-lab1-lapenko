@@ -1,19 +1,22 @@
 object LogAnalyzer {
     fun countByLevel(logList: List<LogEntry>): Map<String, Int> {
-        val groupedByFirstLetter = logList.groupingBy { it.level } //мамой клянусь, я офигеть как понимаю что это
+        val groupedByFirstLetter = logList.groupingBy { it.level } // мамой клянусь, я офигеть как понимаю что это
         val counts = groupedByFirstLetter.eachCount()
-        return counts;
+        return counts
     }
 
     fun findMostActiveService(logList: List<LogEntry>): String {
         val result =
             logList.maxByOrNull { it.service } // типа оно выдает первый максимальный элемент sqlной функции. все это оч похоже на бд
-        return result!!.service;
+        return result!!.service
     }
 
-    fun getErrorsForService(logList: List<LogEntry>, service: String): List<String> {
+    fun getErrorsForService(
+        logList: List<LogEntry>,
+        service: String,
+    ): List<String> {
         val groupedByFirstLetter = logList.groupBy { it.level }
-        return groupedByFirstLetter["ERROR"]!!.map { it.service }; //фп прикольное
+        return groupedByFirstLetter["ERROR"]!!.map { it.service }; // фп прикольное
     }
 
     fun analyzeMessageLengths(logList: List<LogEntry>): Any {
@@ -21,12 +24,19 @@ object LogAnalyzer {
         return lengths
     }
 
-    fun getTopNLongestMessages(logList: List<LogEntry>, TopN: Int): List<LogEntry> {
+    fun getTopNLongestMessages(
+        logList: List<LogEntry>,
+        TopN: Int,
+    ): List<LogEntry> {
         val groupedByFirstLetter = logList.sortedByDescending { it.toString().length }.take(TopN)
         return groupedByFirstLetter.map { it }
     }
 
-    fun filterByTimeRange(logList: List<LogEntry>, timestamp1: String, timestamp2: String): List<LogEntry> {
+    fun filterByTimeRange(
+        logList: List<LogEntry>,
+        timestamp1: String,
+        timestamp2: String,
+    ): List<LogEntry> {
         val groupedByFirstLetter = logList.filter { timestamp1 < it.timestamp && it.timestamp < timestamp2 }
         return groupedByFirstLetter
     }
