@@ -47,7 +47,12 @@ class LogAnalyzer {
 fun main() {
 
     val analyzer = LogAnalyzer()
-    val myLogs = JsonParser().ParseLogs("examples\\exampleLogs.json")
+    val myJsonParser = LogParserFactory.createParser("json")
+    val myTxtParser = LogParserFactory.createParser("text")
+
+    val myLogs = myJsonParser.ParseLogs("examples\\exampleLogs.json")
+    val myLogs2 = myTxtParser.ParseLogs("examples\\exampleLogs.json")
+
     println(analyzer.countByLevel(myLogs))
     println(analyzer.findMostActiveService(myLogs))
     println(analyzer.getErrorsForService(myLogs, "123"))
