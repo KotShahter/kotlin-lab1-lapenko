@@ -1,13 +1,5 @@
 import kotlinx.serialization.json.*
 
-
-data class LogEntry(
-    val timestamp: String,
-    val level: String,
-    val service: String,
-    val message: String
-)
-
 val sampleLogs = listOf(
     "[2024-01-15T10:23:45] [INFO] [auth-service] User logged in",
     "[2024-01-15T10:24:12] [ERROR] [payment-service] Payment gateway timeout",
