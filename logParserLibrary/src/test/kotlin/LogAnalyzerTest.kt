@@ -1,14 +1,17 @@
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import kotlin.test.Test
-import org.junit.jupiter.api.Assertions.*
 
 class LogAnalyzerTest {
-    private val logs = listOf(
-        LogEntry("2025-10-25T10:00:00", "INFO", "auth-service", "User logged in"),
-        LogEntry("2025-10-25T10:01:00", "ERROR", "payment-service", "Payment failed"),
-        LogEntry("2025-10-25T10:02:00", "WARN", "auth-service", "Multiple login attempts"),
-        LogEntry("2025-10-25T10:03:00", "ERROR", "payment-service", "Database timeout"),
-        LogEntry("2025-10-25T10:04:00", "INFO", "notification-service", "Email sent")
-    )
+    private val logs =
+        listOf(
+            LogEntry("2025-10-25T10:00:00", "INFO", "auth-service", "User logged in"),
+            LogEntry("2025-10-25T10:01:00", "ERROR", "payment-service", "Payment failed"),
+            LogEntry("2025-10-25T10:02:00", "WARN", "auth-service", "Multiple login attempts"),
+            LogEntry("2025-10-25T10:03:00", "ERROR", "payment-service", "Database timeout"),
+            LogEntry("2025-10-25T10:04:00", "INFO", "notification-service", "Email sent"),
+        )
+
     @Test
     fun `countByLevel returns correct counts`() {
         val result = LogAnalyzer.countByLevel(logs)

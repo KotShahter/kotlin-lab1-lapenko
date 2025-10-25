@@ -19,9 +19,7 @@ class TxtParser : Parser {
                         }
                 }
             return logLines
-        }
-        catch (e: FileNotFoundException)
-        {
+        } catch (e: FileNotFoundException) {
             println("Error: File '$file' not found")
             return ArrayList<LogEntry>()
         }

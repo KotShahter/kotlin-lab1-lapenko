@@ -1,7 +1,7 @@
 package org.example
 
-import LogParserFactory
 import LogAnalyzer
+import LogParserFactory
 
 fun main() {
     TxtGenerator.generate()

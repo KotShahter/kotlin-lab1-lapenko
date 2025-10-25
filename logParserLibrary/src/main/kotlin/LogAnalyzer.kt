@@ -1,4 +1,5 @@
 
+
 object LogAnalyzer {
     fun countByLevel(logList: List<LogEntry>): Map<String, Int> {
         val groupedByFirstLetter = logList.groupingBy { it.level } // мамой клянусь, я офигеть как понимаю что это

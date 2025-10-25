@@ -12,7 +12,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation(project(":logParserLibrary")) //Implements my jar library
+    implementation(project(":logParserLibrary")) // Implements my jar library
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
 }
 
