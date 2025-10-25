@@ -1,0 +1,30 @@
+[2025-10-25T13:45:09] [INFO] [user-service] Currency conversion failed (USD→JPY)
+[2025-10-25T13:45:23] [ERROR] [payment-service] Downstream service unavailable
+[2025-10-25T13:46:35] [INFO] [payment-service] Profile updated
+[2025-10-25T13:47:12] [INFO] [payment-service] Invalid credentials
+[2025-10-25T13:46:21] [INFO] [audit-service] Email retry #171
+[2025-10-25T13:46:09] [ERROR] [gateway-service] Invalid credentials
+[2025-10-25T13:46:21] [INFO] [report-service] Password about to expire for user ID 372
+[2025-10-25T13:51:20] [ERROR] [audit-service] Downstream service unavailable
+[2025-10-25T13:48:13] [WARN] [user-service] Log rotation completed
+[2025-10-25T13:47:24] [INFO] [gateway-service] Profile updated
+[2025-10-25T13:52:49] [INFO] [audit-service] Token expired for user ID 379
+[2025-10-25T13:48:27] [INFO] [database-service] Downstream service unavailable
+[2025-10-25T13:51:21] [WARN] [audit-service] High latency detected (830ms)
+[2025-10-25T13:48:37] [WARN] [audit-service] Email retry #19
+[2025-10-25T13:57:31] [INFO] [notification-service] Daily report generated
+[2025-10-25T13:48:39] [WARN] [report-service] Memory usage above 85%
+[2025-10-25T13:55:33] [WARN] [payment-service] Downstream service unavailable
+[2025-10-25T13:56:46] [ERROR] [notification-service] Cache miss for key user_372
+[2025-10-25T13:56:33] [WARN] [user-service] Invalid credentials
+[2025-10-25T14:03:31] [WARN] [cache-service] Profile updated
+[2025-10-25T14:02:29] [ERROR] [report-service] Memory usage above 85%
+[2025-10-25T14:02:18] [WARN] [payment-service] Session refreshed
+[2025-10-25T13:52:07] [INFO] [payment-service] Downstream service unavailable
+[2025-10-25T14:02:47] [ERROR] [payment-service] Payment gateway timeout
+[2025-10-25T13:51:09] [ERROR] [audit-service] SMS queued
+[2025-10-25T14:00:34] [ERROR] [user-service] Session refreshed
+[2025-10-25T13:50:47] [WARN] [gateway-service] Invalid credentials
+[2025-10-25T13:57:45] [ERROR] [user-service] Session refreshed
+[2025-10-25T14:02:53] [ERROR] [audit-service] Profile updated
+[2025-10-25T13:56:16] [ERROR] [notification-service] Transaction completed
