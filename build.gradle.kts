@@ -1,24 +1,9 @@
 plugins {
-    kotlin("jvm") version "2.2.10"
-    kotlin("plugin.serialization") version "2.2.0"
-    id("org.jlleitschuh.gradle.ktlint") version "13.1.0"
+    // no specific plugins needed here for now
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testImplementation(kotlin("test"))
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(24)
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }
