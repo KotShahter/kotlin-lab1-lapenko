@@ -1,0 +1,30 @@
+[2025-10-25T14:56:12] [ERROR] [cache-service] Upstream timeout (service: analytics)
+[2025-10-25T14:56:55] [ERROR] [cache-service] Deadlock detected on table `users`
+[2025-10-25T14:57:44] [ERROR] [payment-service] Unexpected token format in header
+[2025-10-25T14:56:48] [INFO] [notification-service] Null pointer while fetching preferences
+[2025-10-25T14:56:52] [ERROR] [gateway-service] Unexpected token format in header
+[2025-10-25T14:57:42] [INFO] [notification-service] Null pointer while fetching preferences
+[2025-10-25T14:59:18] [INFO] [user-service] Token expired for user ID 216
+[2025-10-25T15:02:09] [ERROR] [user-service] Token expired for user ID 398
+[2025-10-25T14:58:52] [INFO] [gateway-service] Currency conversion failed (USD→JPY)
+[2025-10-25T14:58:54] [ERROR] [notification-service] Password about to expire for user ID 530
+[2025-10-25T15:05:32] [INFO] [gateway-service] Currency conversion failed (USD→JPY)
+[2025-10-25T15:02:26] [INFO] [audit-service] Deadlock detected on table `users`
+[2025-10-25T15:03:36] [ERROR] [notification-service] Downstream service unavailable
+[2025-10-25T15:06:23] [WARN] [notification-service] Database connection failed
+[2025-10-25T15:06:42] [WARN] [auth-service] Unexpected token format in header
+[2025-10-25T15:08:27] [WARN] [auth-service] SMS queued
+[2025-10-25T15:09:32] [INFO] [gateway-service] Profile updated
+[2025-10-25T15:00:27] [WARN] [user-service] Null pointer while fetching preferences
+[2025-10-25T15:08:48] [INFO] [notification-service] High latency detected (422ms)
+[2025-10-25T15:10:08] [ERROR] [payment-service] Invalid credentials
+[2025-10-25T15:09:52] [ERROR] [payment-service] Insufficient funds
+[2025-10-25T15:12:18] [INFO] [audit-service] Email retry #962
+[2025-10-25T15:05:00] [ERROR] [notification-service] Insufficient funds
+[2025-10-25T15:13:50] [WARN] [cache-service] Null pointer while fetching preferences
+[2025-10-25T15:09:48] [WARN] [notification-service] High latency detected (109ms)
+[2025-10-25T15:01:12] [ERROR] [report-service] Token expired for user ID 555
+[2025-10-25T15:06:36] [ERROR] [notification-service] Upstream timeout (service: analytics)
+[2025-10-25T15:04:45] [ERROR] [cache-service] Profile updated
+[2025-10-25T15:07:24] [INFO] [notification-service] Log rotation completed
+[2025-10-25T15:01:31] [INFO] [audit-service] SMS queued

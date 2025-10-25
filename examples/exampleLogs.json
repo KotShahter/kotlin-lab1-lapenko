@@ -1,164 +1,182 @@
 [
-  {
-    "timestamp": "2024-01-15T10:23:45",
-    "level": "INFO",
-    "service": "auth-service",
-    "message": "User logged in"
-  },
-  {
-    "timestamp": "2024-01-15T10:24:12",
-    "level": "ERROR",
-    "service": "payment-service",
-    "message": "Payment gateway timeout"
-  },
-  {
-    "timestamp": "2024-01-15T10:24:30",
-    "level": "WARN",
-    "service": "auth-service",
-    "message": "Multiple login attempts"
-  },
-  {
-    "timestamp": "2024-01-15T10:25:01",
-    "level": "INFO",
-    "service": "notification-service",
-    "message": "Email sent"
-  },
-  {
-    "timestamp": "2024-01-15T10:25:45",
-    "level": "ERROR",
-    "service": "payment-service",
-    "message": "Database connection failed"
-  },
-  {
-    "timestamp": "2024-01-15T10:27:00",
-    "level": "ERROR",
-    "service": "auth-service",
-    "message": "Invalid credentials"
-  },
-  {
-    "timestamp": "2024-01-15T10:27:34",
-    "level": "INFO",
-    "service": "user-service",
-    "message": "Profile updated"
-  },
-  {
-    "timestamp": "2024-01-15T10:28:02",
-    "level": "WARN",
-    "service": "cache-service",
-    "message": "Cache miss for key user_2381"
-  },
-  {
-    "timestamp": "2024-01-15T10:28:17",
-    "level": "ERROR",
-    "service": "payment-service",
-    "message": "Insufficient funds"
-  },
-  {
-    "timestamp": "2024-01-15T10:28:45",
-    "level": "INFO",
-    "service": "notification-service",
-    "message": "SMS queued"
-  },
-  {
-    "timestamp": "2024-01-15T10:29:11",
-    "level": "INFO",
-    "service": "auth-service",
-    "message": "Session refreshed"
-  },
-  {
-    "timestamp": "2024-01-15T10:29:48",
-    "level": "WARN",
-    "service": "gateway-service",
-    "message": "High latency detected (782ms)"
-  },
-  {
-    "timestamp": "2024-01-15T10:30:05",
-    "level": "ERROR",
-    "service": "user-service",
-    "message": "Null pointer while fetching preferences"
-  },
-  {
-    "timestamp": "2024-01-15T10:31:00",
-    "level": "INFO",
-    "service": "payment-service",
-    "message": "Transaction completed"
-  },
-  {
-    "timestamp": "2024-01-15T10:31:27",
-    "level": "WARN",
-    "service": "notification-service",
-    "message": "Email retry #2"
-  },
-  {
-    "timestamp": "2024-01-15T10:32:12",
-    "level": "ERROR",
-    "service": "auth-service",
-    "message": "Token expired for user ID 504"
-  },
-  {
-    "timestamp": "2024-01-15T10:33:45",
-    "level": "INFO",
-    "service": "audit-service",
-    "message": "Log rotation completed"
-  },
-  {
-    "timestamp": "2024-01-15T10:34:02",
-    "level": "WARN",
-    "service": "gateway-service",
-    "message": "Downstream service unavailable"
-  },
-  {
-    "timestamp": "2024-01-15T10:34:37",
-    "level": "ERROR",
-    "service": "database-service",
-    "message": "Deadlock detected on table `users`"
-  },
-  {
-    "timestamp": "2024-01-15T10:35:19",
-    "level": "INFO",
-    "service": "auth-service",
-    "message": "User logged out"
-  },
-  {
-    "timestamp": "2024-01-15T10:35:55",
-    "level": "ERROR",
-    "service": "payment-service",
-    "message": "Currency conversion failed (USD→JPY)"
-  },
-  {
-    "timestamp": "2024-01-15T10:36:11",
-    "level": "INFO",
-    "service": "notification-service",
-    "message": "Push notification delivered"
-  },
-  {
-    "timestamp": "2024-01-15T10:37:00",
-    "level": "WARN",
-    "service": "cache-service",
-    "message": "Memory usage above 85%"
-  },
-  {
-    "timestamp": "2024-01-15T10:37:38",
-    "level": "ERROR",
-    "service": "auth-service",
-    "message": "Unexpected token format in header"
-  },
-  {
-    "timestamp": "2024-01-15T10:38:12",
-    "level": "INFO",
-    "service": "report-service",
-    "message": "Daily report generated"
-  },
-  {
-    "timestamp": "2024-01-15T10:38:40",
-    "level": "WARN",
-    "service": "auth-service",
-    "message": "Password about to expire for user ID 901"
-  },
-  {
-    "timestamp": "2024-01-15T10:39:15",
-    "level": "ERROR",
-    "service": "gateway-service",
-    "message": "Upstream timeout (service: analytics)"
-  }
+    {
+        "timestamp": "2025-10-25T14:56:12.8747713",
+        "level": "ERROR",
+        "service": "user-service",
+        "message": "Memory usage above 78%"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8807718",
+        "level": "INFO",
+        "service": "cache-service",
+        "message": "Upstream timeout"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8807718",
+        "level": "WARN",
+        "service": "user-service",
+        "message": "Upstream timeout"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8807718",
+        "level": "WARN",
+        "service": "payment-service",
+        "message": "Insufficient funds"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8807718",
+        "level": "INFO",
+        "service": "user-service",
+        "message": "Deadlock detected on table `payments`"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "ERROR",
+        "service": "payment-service",
+        "message": "Transaction completed"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "WARN",
+        "service": "payment-service",
+        "message": "Currency conversion failed (GBP→USD)"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "ERROR",
+        "service": "user-service",
+        "message": "Downstream service unavailable"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "INFO",
+        "service": "audit-service",
+        "message": "Deadlock detected on table `users`"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "WARN",
+        "service": "audit-service",
+        "message": "Upstream timeout"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "INFO",
+        "service": "auth-service",
+        "message": "Token expired for user ID 609"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "INFO",
+        "service": "report-service",
+        "message": "Log rotation completed"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "ERROR",
+        "service": "database-service",
+        "message": "Null pointer while fetching preferences"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "WARN",
+        "service": "notification-service",
+        "message": "Deadlock detected on table `sessions`"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "ERROR",
+        "service": "user-service",
+        "message": "Upstream timeout"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "ERROR",
+        "service": "notification-service",
+        "message": "Push notification delivered"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "WARN",
+        "service": "notification-service",
+        "message": "Push notification delivered"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "ERROR",
+        "service": "database-service",
+        "message": "Email sent"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "INFO",
+        "service": "notification-service",
+        "message": "High latency detected (625ms)"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "WARN",
+        "service": "payment-service",
+        "message": "Currency conversion failed (USD→JPY)"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "ERROR",
+        "service": "audit-service",
+        "message": "Daily report generated"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "ERROR",
+        "service": "cache-service",
+        "message": "Downstream service unavailable"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "WARN",
+        "service": "database-service",
+        "message": "Log rotation completed"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "WARN",
+        "service": "user-service",
+        "message": "Email sent"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "ERROR",
+        "service": "auth-service",
+        "message": "User logged out"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "INFO",
+        "service": "cache-service",
+        "message": "Deadlock detected on table `payments`"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "WARN",
+        "service": "user-service",
+        "message": "Email sent"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "ERROR",
+        "service": "user-service",
+        "message": "Email sent"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "WARN",
+        "service": "notification-service",
+        "message": "Downstream service unavailable"
+    },
+    {
+        "timestamp": "2025-10-25T14:56:12.8827722",
+        "level": "INFO",
+        "service": "database-service",
+        "message": "Cache miss for key user_8937"
+    }
 ]

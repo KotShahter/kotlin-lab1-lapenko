@@ -4,21 +4,19 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint") version "13.1.0"
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+subprojects {
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
 
-repositories {
-    mavenCentral()
+    configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
+        version.set("1.3.0")
+        outputToConsole.set(true)
+        verbose.set(true)
+        ignoreFailures.set(false)
+    }
 }
 
-dependencies {
-    testImplementation(kotlin("test"))
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(24)
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }

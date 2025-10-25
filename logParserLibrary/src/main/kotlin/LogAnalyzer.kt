@@ -1,3 +1,5 @@
+
+
 object LogAnalyzer {
     fun countByLevel(logList: List<LogEntry>): Map<String, Int> {
         val groupedByFirstLetter = logList.groupingBy { it.level } // мамой клянусь, я офигеть как понимаю что это
@@ -37,7 +39,7 @@ object LogAnalyzer {
         timestamp1: String,
         timestamp2: String,
     ): List<LogEntry> {
-        val groupedByFirstLetter = logList.filter { timestamp1 < it.timestamp && it.timestamp < timestamp2 }
+        val groupedByFirstLetter = logList.filter { timestamp1 <= it.timestamp && it.timestamp <= timestamp2 }
         return groupedByFirstLetter
     }
 
