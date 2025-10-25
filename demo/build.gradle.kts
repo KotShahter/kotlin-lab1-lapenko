@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation(project(":logParserLibrary")) //Implements my jar library
 }
 
 tasks.test {
