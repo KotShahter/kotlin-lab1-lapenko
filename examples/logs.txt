@@ -1,30 +1,30 @@
-[2025-10-25T13:51:15] [WARN] [gateway-service] Cache miss for key user_57
-[2025-10-25T13:51:46] [WARN] [auth-service] Daily report generated
-[2025-10-25T13:51:45] [INFO] [cache-service] Email sent
-[2025-10-25T13:51:45] [ERROR] [report-service] Invalid credentials
-[2025-10-25T13:53:35] [WARN] [notification-service] Payment gateway timeout
-[2025-10-25T13:53:55] [INFO] [auth-service] Transaction completed
-[2025-10-25T13:54:21] [WARN] [report-service] Upstream timeout (service: analytics)
-[2025-10-25T13:56:51] [INFO] [user-service] Deadlock detected on table `users`
-[2025-10-25T13:54:27] [ERROR] [gateway-service] Invalid credentials
-[2025-10-25T13:57:42] [ERROR] [auth-service] Multiple login attempts
-[2025-10-25T13:58:05] [ERROR] [user-service] High latency detected (510ms)
-[2025-10-25T13:56:56] [INFO] [notification-service] User logged in
-[2025-10-25T13:54:51] [ERROR] [auth-service] Multiple login attempts
-[2025-10-25T13:54:17] [INFO] [database-service] Database connection failed
-[2025-10-25T13:59:53] [INFO] [notification-service] Transaction completed
-[2025-10-25T14:02:30] [ERROR] [report-service] Currency conversion failed (USD→JPY)
-[2025-10-25T14:06:27] [INFO] [cache-service] Payment gateway timeout
-[2025-10-25T13:57:12] [WARN] [report-service] Password about to expire for user ID 189
-[2025-10-25T13:56:39] [ERROR] [payment-service] Token expired for user ID 991
-[2025-10-25T14:00:45] [WARN] [notification-service] Currency conversion failed (USD→JPY)
-[2025-10-25T14:02:15] [WARN] [audit-service] Password about to expire for user ID 175
-[2025-10-25T14:05:57] [WARN] [cache-service] Push notification delivered
-[2025-10-25T14:11:47] [WARN] [database-service] Email sent
-[2025-10-25T13:59:41] [WARN] [audit-service] Null pointer while fetching preferences
-[2025-10-25T14:08:27] [ERROR] [gateway-service] Payment gateway timeout
-[2025-10-25T14:10:50] [WARN] [notification-service] Session refreshed
-[2025-10-25T14:08:09] [WARN] [auth-service] Database connection failed
-[2025-10-25T14:07:27] [INFO] [cache-service] Deadlock detected on table `users`
-[2025-10-25T14:11:19] [ERROR] [user-service] Profile updated
-[2025-10-25T14:07:41] [INFO] [gateway-service] SMS queued
+[2025-10-25T13:57:25] [INFO] [notification-service] Unexpected token format in header
+[2025-10-25T13:58:15] [INFO] [user-service] Downstream service unavailable
+[2025-10-25T13:58:41] [ERROR] [database-service] Upstream timeout (service: analytics)
+[2025-10-25T13:59:01] [ERROR] [report-service] Insufficient funds
+[2025-10-25T14:00:49] [WARN] [audit-service] Insufficient funds
+[2025-10-25T13:59:40] [WARN] [auth-service] Null pointer while fetching preferences
+[2025-10-25T14:01:49] [WARN] [report-service] Token expired for user ID 96
+[2025-10-25T14:03:43] [INFO] [notification-service] Invalid credentials
+[2025-10-25T14:02:45] [ERROR] [notification-service] Invalid credentials
+[2025-10-25T14:04:55] [INFO] [cache-service] Currency conversion failed (USD→JPY)
+[2025-10-25T13:59:25] [ERROR] [report-service] User logged out
+[2025-10-25T14:03:06] [ERROR] [payment-service] Multiple login attempts
+[2025-10-25T14:08:13] [ERROR] [audit-service] Downstream service unavailable
+[2025-10-25T14:09:07] [WARN] [notification-service] Downstream service unavailable
+[2025-10-25T14:06:03] [ERROR] [user-service] Email retry #878
+[2025-10-25T14:06:10] [INFO] [user-service] Cache miss for key user_830
+[2025-10-25T14:04:37] [ERROR] [payment-service] Multiple login attempts
+[2025-10-25T14:02:14] [ERROR] [cache-service] Daily report generated
+[2025-10-25T14:13:37] [INFO] [payment-service] Multiple login attempts
+[2025-10-25T14:09:27] [ERROR] [notification-service] User logged out
+[2025-10-25T14:09:25] [ERROR] [audit-service] Email sent
+[2025-10-25T14:06:10] [INFO] [auth-service] Unexpected token format in header
+[2025-10-25T14:04:45] [ERROR] [user-service] Unexpected token format in header
+[2025-10-25T14:15:26] [INFO] [gateway-service] User logged out
+[2025-10-25T14:11:01] [INFO] [payment-service] User logged in
+[2025-10-25T14:12:25] [ERROR] [database-service] Password about to expire for user ID 863
+[2025-10-25T14:13:01] [INFO] [payment-service] High latency detected (560ms)
+[2025-10-25T14:22:37] [INFO] [notification-service] Log rotation completed
+[2025-10-25T14:11:53] [INFO] [audit-service] Database connection failed
+[2025-10-25T14:07:34] [INFO] [gateway-service] Transaction completed
