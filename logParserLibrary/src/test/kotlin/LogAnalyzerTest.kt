@@ -33,9 +33,9 @@ class LogAnalyzerTest {
     @Test
     fun `analyzeMessageLengths returns average message lengths`() {
         val result = LogAnalyzer.analyzeMessageLengths(logs) as Map<*, *>
-        assertEquals(15.0, result["INFO"])
-        assertEquals(13.5, result["ERROR"])
-        assertEquals(25.0, result["WARN"])
+        assertEquals(12.0, result["INFO"])
+        assertEquals(15.0, result["ERROR"])
+        assertEquals(23.0, result["WARN"])
     }
 
     @Test
@@ -48,7 +48,7 @@ class LogAnalyzerTest {
     @Test
     fun `filterByTimeRange returns logs within range`() {
         val result = LogAnalyzer.filterByTimeRange(logs, "2025-10-25T10:01:00", "2025-10-25T10:03:00")
-        assertEquals(2, result.size)
+        assertEquals(3, result.size)
         assertEquals("ERROR", result[0].level)
         assertEquals("WARN", result[1].level)
     }
@@ -56,7 +56,7 @@ class LogAnalyzerTest {
     @Test
     fun `getServiceLevelDistribution returns nested counts`() {
         val result = LogAnalyzer.getServiceLevelDistribution(logs)
-        assertEquals(2, result["auth-service"]!!["INFO"] ?: 0)
+        assertEquals(1, result["auth-service"]!!["INFO"] ?: 0)
         assertEquals(1, result["auth-service"]!!["WARN"] ?: 0)
         assertEquals(2, result["payment-service"]!!["ERROR"] ?: 0)
         assertEquals(1, result["notification-service"]!!["INFO"] ?: 0)

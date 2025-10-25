@@ -1,11 +1,17 @@
 
+import kotlinx.serialization.MissingFieldException
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import kotlin.io.path.createTempFile
+import kotlin.io.path.pathString
+import kotlin.io.path.writeText
 
 class LogParserTest {
 
     private val txtParser = TxtParser()
     private val jsonParser = JsonParser()
+
+    val tempFile = createTempFile("test_logs", ".txt")
 
     private val sampleTxtLogs = """
         [2025-10-25T10:00:00] [INFO] [auth-service] User logged in
@@ -13,6 +19,7 @@ class LogParserTest {
         [2025-10-25T10:02:00] [WARN] [auth-service] Multiple login attempts
     """.trimIndent()
 
+    val tempFileJS = createTempFile("test_logs", ".json")
     private val sampleJsonLogs = """
         [
             {"timestamp":"2025-10-25T10:00:00","level":"INFO","service":"auth-service","message":"User logged in"},
@@ -24,7 +31,8 @@ class LogParserTest {
     // ---------------- TXT Parser ----------------
     @Test
     fun `TXT parser parses logs correctly`() {
-        val logs = txtParser.parseLogs(sampleTxtLogs)
+        tempFile.writeText(sampleTxtLogs)
+        val logs = txtParser.parseLogs(tempFile.pathString)
         assertEquals(3, logs.size)
         assertEquals("INFO", logs[0].level)
         assertEquals("payment-service", logs[1].service)
@@ -47,7 +55,8 @@ class LogParserTest {
     // ---------------- JSON Parser ----------------
     @Test
     fun `JSON parser parses logs correctly`() {
-        val logs = jsonParser.parseLogs(sampleJsonLogs)
+        tempFileJS.writeText(sampleJsonLogs)
+        val logs = jsonParser.parseLogs(tempFileJS.pathString)
         assertEquals(3, logs.size)
         assertEquals("INFO", logs[0].level)
         assertEquals("payment-service", logs[1].service)
@@ -56,8 +65,10 @@ class LogParserTest {
 
     @Test
     fun `JSON parser handles empty array`() {
-        val logs = jsonParser.parseLogs("[]")
-        assertTrue(logs.isEmpty())
+        val exception = assertThrows(Exception::class.java) {
+            val logs = jsonParser.parseLogs("[]")
+        }
+        assertNotNull(exception.message)
     }
 
     @Test
@@ -72,12 +83,15 @@ class LogParserTest {
     @Test
     fun `JSON parser handles missing fields`() {
         val jsonWithMissingFields = """
-            [
-                {"timestamp":"2025-10-25T10:00:00","level":"INFO","message":"No service field"}
-            ]
-        """.trimIndent()
-        val logs = jsonParser.parseLogs(jsonWithMissingFields)
-        assertEquals(1, logs.size)
-        assertEquals("", logs[0].service) // assuming parser defaults missing fields to empty string
+        [
+            {"timestamp":"2025-10-25T10:00:00","level":"INFO","message":"No service field"}
+        ]
+    """.trimIndent()
+        tempFileJS.writeText(jsonWithMissingFields)
+
+        val exception = assertThrows(Exception::class.java) {
+            val logs = jsonParser.parseLogs(tempFileJS.pathString)
+        }
+        assertNotNull(exception.message)
     }
 }

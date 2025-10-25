@@ -38,7 +38,7 @@ object LogAnalyzer {
         timestamp1: String,
         timestamp2: String,
     ): List<LogEntry> {
-        val groupedByFirstLetter = logList.filter { timestamp1 < it.timestamp && it.timestamp < timestamp2 }
+        val groupedByFirstLetter = logList.filter { timestamp1 <= it.timestamp && it.timestamp <= timestamp2 }
         return groupedByFirstLetter
     }
 
